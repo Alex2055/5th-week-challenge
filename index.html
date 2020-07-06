@@ -25,96 +25,151 @@
         <p class="hour">8am</p>
       </div>
       <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        <p class="hour">8am</p>
-      </div>
-      <div class="col-10">
-        <textarea name="" id="textarea" ></textarea>
-      </div>
-      <div class="col-1">
-        <button class="saveBtn">Save</button>
-      </div>
-    </div>
-    
 
-    <!-- Timeblocks go here -->
+        <textarea name="" id="textarea8"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">9am</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea9"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">10am</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea10"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">11am</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea11"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">12am</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea12"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">1pm</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea13"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">2pm</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea14"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">3pm</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea15"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <p class="hour">4pm</p>
+      </div>
+      <div class="col-10">
+        <textarea name="" id="textarea16"></textarea>
+      </div>
+      <div class="col-1">
+        <button class="saveBtn">Save</button>
+      </div>
+    </div>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script>
+   
+   
+    //display current day
+    $(function() {
+      $("#currentDay").text( moment().format("MMMM Do YYYY"));
+
+// check if it is any saved tasks
+      var tasks = localStorage.tasks;
+      if (tasks) {
+        tasks = JSON.parse(tasks);
+      } else {
+        tasks = [];
+      }
+
+      //change color of the textarea
+      var currentHour = moment().hour();
+      for (var i = 8; i < 16; i++){
+        var task = tasks[i];
+        var textArea = $('#textarea' + i);
+        if (currentHour > i){
+          textArea.addClass('past');
+        } else if (currentHour === i) {
+          textArea.addClass('present');
+        } else {
+          textArea.addClass('future');
+        }
+        if (!task){
+          continue;
+        }
+        
+        textArea.val(task);
+        
+      }
+       //save value in the local storage
+      $('.saveBtn').on('click', function() {
+        var initialHour = 8;
+        var index = initialHour + $('.saveBtn').index(this);
+        tasks[index] = $(this).parent().parent().find('textarea').val();
+        localStorage.tasks = JSON.stringify(tasks);
+      });
+    })
+
+    
+  </script>
 </body>
 
 </html>
