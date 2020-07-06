@@ -13,4 +13,4 @@ Simple calendar application that allows a user to save events for each hour of t
 ## Website
 https://alex2055.github.io/5th-week-challenge/
 #
-![web page screenshot](assets/screenshot.png)
+![web page screenshot](assets/screenshot.png/)
