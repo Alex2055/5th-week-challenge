@@ -132,19 +132,22 @@
     $(function() {
       $("#currentDay").text( moment().format("MMMM Do YYYY"));
 
-// check if it is any saved tasks
+// check if it is any saved tasks 
       var tasks = localStorage.tasks;
+      // if not empty populate
       if (tasks) {
         tasks = JSON.parse(tasks);
       } else {
         tasks = [];
       }
 
-      //change color of the textarea
+      
       var currentHour = moment().hour();
       for (var i = 8; i < 16; i++){
         var task = tasks[i];
         var textArea = $('#textarea' + i);
+       
+       //change the color of the textarea
         if (currentHour > i){
           textArea.addClass('past');
         } else if (currentHour === i) {
@@ -162,6 +165,8 @@
        //save value in the local storage
       $('.saveBtn').on('click', function() {
         var initialHour = 8;
+
+        // getting index of the button clicked
         var index = initialHour + $('.saveBtn').index(this);
         tasks[index] = $(this).parent().parent().find('textarea').val();
         localStorage.tasks = JSON.stringify(tasks);
